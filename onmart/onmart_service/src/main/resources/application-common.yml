@@ -1,0 +1,95 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /api/v1
+
+spring:
+  application:
+    name: onmart-api-service
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: <Your google mail address>
+    password: <Your google mail app password>
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+springdoc:
+  swagger-ui.path: /swagger-ui
+  packagesToScan: com.cp2396f09_sem4_grp3.onmart_service
+
+app:
+  path:
+    fe:
+      root: http://localhost:3000
+      home: http://localhost:3000
+      # For reset password email
+      reset-password: /reset-password
+      verify-success: /verify-success
+      reset-password-success: /reset-password-success
+      registration-timeout: /registration-timeout
+      reset-password-timeout: /reset-password-timeout
+      pay-success: /pay-success
+      pay-failed: /pay-failed
+      received-order: /product-review
+    be:
+      root: http://localhost:9090
+  jpa:
+    max-items-in-page: 30
+  mail:
+    company: OnMart
+    user: company.onmart@gmail.com
+    details:
+      verify-email: Confirm Your Email Address
+      reset-password: Reset Password
+    path:
+      verify-email: http://localhost:9090/api/v1/register/verify-user
+      reset-password: http://localhost:3000/reset-password
+  resources:
+    image:
+      category: http://localhost:9090/api/v1/public/parent-categories/$id/image
+      product: http://localhost:9090/api/v1/public/products/$id/image
+  messages:
+    user:
+      response:
+        verify-email: Email verified successfully. Now you can login to your account.
+        resend-email: A new verification link hs been sent to your email, please, check to complete your registration
+      exception:
+        invalid-refresh-token: Invalid refresh token.
+        incorrect-login: Incorrect username or password
+        unenabled-user: This accound has not been verified yet.
+        trashed-user: This account has been disabled, please contact admin to unlock!
+        user-already-verify: This account has already been verified, please, login.
+
+      service:
+        valid: valid
+        invalid: invalid
+        expired: Verification link already expired. Please, click the link below to receive a new verification link
+  vnpay:
+    pay-url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+    return-url: http://localhost:9090/api/v1/payment/vn-pay-callback
+    tmn-code: <Your secret VNPay tmn-code>
+    secret-key: <Your secret VNPay secret-key>
+    version: 2.1.0
+    command: pay
+    order-type: other
+  security:
+    jwt:
+      secret-key: <Your jwt secret-key>

@@ -1,0 +1,14 @@
+---
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+---
+spring:
+  config:
+    activate:
+      on-profile: "deploy"
+---
+spring:
+  profiles.active: dev
+  profiles.include: common

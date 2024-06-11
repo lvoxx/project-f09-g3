@@ -1,0 +1,13 @@
+spring:
+    datasource:
+        url: jdbc:mysql://34.127.107.166/onmart_db
+        username: root
+        password: bGt9hlvRCZ
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    #org.springframework.security: TRACE
+    org.hibernate.SQL: TRACE
+    #org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+        

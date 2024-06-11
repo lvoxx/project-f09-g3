@@ -1,0 +1,7 @@
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3306/onmart_db
+        username: cp2296f09-g3-sem4
+        password: bGt9hlvRCZ
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        

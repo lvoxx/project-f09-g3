@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-OnmartServiceApplication<onmart_service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.cp2396f09_sem4_grp3.onmart_service.OnmartServiceApplication",
+            "projectName": "onmart_service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
